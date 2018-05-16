@@ -56,6 +56,10 @@
       expect(airport.hangar).not.toContain(plane);
     });
 
+    it('should raise an error if plane is not in hangar', function() {
+      expect(function() { airport.takeOff(plane, weather) } ).toThrow("Plane is not in hangar!")
+    })
+
     it('should throw an error if weather is stormy', function() {
       airport.land(plane, weather);
       spyOn(weather, 'isStormy').and.returnValue(true)
