@@ -48,4 +48,10 @@
       airport.takeOff(plane, weather);
       expect(airport.hangar).not.toContain(plane);
     });
+
+    it('should throw an error if weather is stormy', function() {
+      airport.land(plane, weather);
+      spyOn(weather, 'isStormy').and.returnValue(true)
+      expect(function() { airport.takeOff(plane, weather) } ).toThrow("Unable to take off due to weather conditions!")
+    });
   });
