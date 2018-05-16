@@ -22,6 +22,13 @@
       };
     });
 
+    it('should raise an error if airport is full', function() {
+      for (i = 0 ; i<10 ; i++) {
+        airport.land(plane, weather)
+      }
+      expect(function() { airport.land(plane, weather) } ).toThrow("Airport at maximum capacity")
+    })
+
     it('should allow a plane to land', function() {
       airport.land(plane, weather);
       expect(airport.hangar).toContain(plane);

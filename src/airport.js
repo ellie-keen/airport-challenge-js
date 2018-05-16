@@ -8,7 +8,9 @@ function Airport() {
 Airport.prototype.land = function(plane, weather) {
   if (weather.isStormy()) {
     throw "Unable to land due to weather conditions!"
-} else {
+  } else if(this.hangar.length === CAPACITY) {
+    throw "Airport at maximum capacity";
+  } else {
     this.hangar.push(plane); }
 };
 
