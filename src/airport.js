@@ -1,15 +1,17 @@
 const CAPACITY = 10;
 
-var Airport = function(weather) {
-  this.weather = weather;
+function Airport() {
   this.hangar = [];
   this.capacity = CAPACITY;
 };
 
-Airport.prototype.land = function(plane) {
-  this.hangar.push(plane);
+Airport.prototype.land = function(plane, weather) {
+  if (weather.isStormy()) {
+    throw "Unable to land due to weather conditions!"
+} else {
+    this.hangar.push(plane); }
 };
 
-Airport.prototype.takeOff = function(plane) {
+Airport.prototype.takeOff = function(plane, weather) {
   this.hangar.splice(this.hangar.indexOf(plane), 1);
 };
