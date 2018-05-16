@@ -1,5 +1,6 @@
+const CAPACITY = 10;
+
 var Airport = function(weather) {
-  const CAPACITY = 10;
   this.weather = weather;
   this.hangar = [];
   this.capacity = CAPACITY;
